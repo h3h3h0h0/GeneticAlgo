@@ -25,6 +25,8 @@ public class Algorithm{
         population.addAll(offspring);
         cull();
 
+        generation++;
+
     }
 
     //generate offspring from the current population
@@ -74,6 +76,18 @@ public class Algorithm{
         while(ret.size() > num) ret.remove(ret.size()-1);
 
         return ret;
+
+    }
+
+    public Algorithm(ArrayList<Chromosome> population, int ps, int mio, int mao, double mc, int sn){
+
+        this.population = population;
+        popSize = ps;
+        minOffspring = mio;
+        maxOffspring = mao;
+        mutationChance = mc;
+        survivalNum = sn;
+        generation = 0;
 
     }
 
