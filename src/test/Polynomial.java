@@ -10,6 +10,7 @@ public class Polynomial extends Chromosome{
     protected int[] xt;
     protected int[] yt;
 
+    //in this case, it uses the coefficient of determination
     @Override
     public double fitness() {
         // TODO Auto-generated method stub
