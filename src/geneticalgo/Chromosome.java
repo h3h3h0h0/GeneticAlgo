@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 public abstract class Chromosome implements Comparable<Chromosome>{
     
+    //note there is no specific structure for genes
+    //this is so that it can be implemented more specifically for each application
     public abstract double fitness(); //a number calculated to represent how good a particular chromosome is
     public abstract Chromosome breed(Chromosome c); //a method that produces a single child based on parent genes
     public abstract void mutate(); //simulation of mutation, randomly changes the genes in some way
