@@ -23,9 +23,8 @@ public class Polynomial extends Chromosome{
     }
 
     @Override
-    public Chromosome mutate() {
+    public void mutate() {
         // TODO Auto-generated method stub
-        return null;
     }
 
     public double calculate(double x){
