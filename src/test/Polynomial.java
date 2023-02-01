@@ -9,6 +9,7 @@ public class Polynomial extends Chromosome{
     protected HashMap<Integer, Term> terms;
     protected double[] xt;
     protected double[] yt;
+    protected int degree;
 
     public HashMap<Integer,Term> getTerms() {
         return this.terms;
@@ -20,6 +21,10 @@ public class Polynomial extends Chromosome{
 
     public double[] getYt() {
         return this.yt;
+    }
+
+    public int getDegree(){
+        return this.degree;
     }
 
 
@@ -50,15 +55,43 @@ public class Polynomial extends Chromosome{
     public Chromosome breed(Chromosome c) {
 
         HashMap<Integer, Term> nt = new HashMap<>();
-        
+        HashMap<Integer, Term> ct = ((Polynomial) c).getTerms();
+        int md = Math.max(degree, ((Polynomial) c).getDegree());
+        int cod = (int)(Math.random()*(md+2));
+        int nmd = 0;
 
-        return null;
+        for(int i = 0; i <= md; i++){
+
+            if(i >= cod){
+
+                if(terms.containsKey(i)){
+                    
+                    nmd = i;
+                    nt.put(i, terms.get(i));
+
+                }
+
+            }else{
+
+                if(ct.containsKey(i)){
+                    
+                    nmd = i;
+                    nt.put(i, ct.get(i));
+
+                }
+
+            }
+
+        }
+
+        return new Polynomial(nt, xt, yt, nmd);
 
     }
 
     @Override
     public void mutate() {
         // TODO Auto-generated method stub
+        
     }
 
     public double calculate(double x){
@@ -71,11 +104,12 @@ public class Polynomial extends Chromosome{
 
     }
 
-    public Polynomial(HashMap<Integer, Term> terms, double[] xt, double[] yt){
+    public Polynomial(HashMap<Integer, Term> terms, double[] xt, double[] yt, int d){
 
         this.terms = terms;
         this.xt = xt;
         this.yt = yt;
+        degree = d;
 
     }
     
