@@ -93,6 +93,8 @@ public class Polynomial extends Chromosome{
     }
 
     @Override
+    //it is set currently to randomly change 1 coefficient by a random amount
+    //with gaussian distribution
     public void mutate() {
 
         Random r = new Random();
