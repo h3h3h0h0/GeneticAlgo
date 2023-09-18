@@ -129,5 +129,15 @@ public class Polynomial extends Chromosome{
         degree = d;
 
     }
+
+    public void print() {
+        for(int i : terms.keySet()) {
+                System.out.print(terms.get(i).calculate(1));
+                System.out.print("x^");
+                System.out.print(i);
+                System.out.print("\t");
+        }
+        System.out.println();
+    }
     
 }

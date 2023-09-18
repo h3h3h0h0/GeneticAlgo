@@ -2,7 +2,7 @@ package geneticalgo;
 
 import java.util.*;
 
-public class Algorithm{
+public class GenAlgorithm{
 
     protected ArrayList<Chromosome> population;
     protected int generation;
@@ -79,7 +79,7 @@ public class Algorithm{
 
     }
 
-    public Algorithm(ArrayList<Chromosome> population, int ps, int mio, int mao, double mc, int sn){
+    public GenAlgorithm(ArrayList<Chromosome> population, int ps, int mio, int mao, double mc, int sn){
 
         this.population = population;
         popSize = ps;
