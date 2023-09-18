@@ -1,10 +1,14 @@
 package test;
 
 import java.util.HashMap;
+import java.util.Random;
 
 import geneticalgo.Chromosome;
 
 public class Polynomial extends Chromosome{
+
+    //standard deviation of mutations (more = aggressive mutation)
+    final double mstdev = 1.0;
 
     protected HashMap<Integer, Term> terms;
     protected double[] xt;
@@ -90,8 +94,19 @@ public class Polynomial extends Chromosome{
 
     @Override
     public void mutate() {
-        // TODO Auto-generated method stub
-        
+
+        Random r = new Random();
+        double change = r.nextGaussian()*mstdev;
+        int changeAt = Math.abs(r.nextInt()%(degree+1)); //power from 0 to degree
+
+        double cv = 0;
+        //calculating with x=1 returns the coefficient, which is
+        //what we are looking for
+        if(terms.keySet().contains(changeAt)) cv = terms.get(changeAt).calculate(1);
+
+        //change and insert
+        terms.put(changeAt, new Term(cv+change, changeAt));
+
     }
 
     public double calculate(double x){
