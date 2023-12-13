@@ -71,7 +71,7 @@ public class GenAlgorithm{
     //get the best <num> chromosomes in the population sorted from best to worst
     public ArrayList<Chromosome> getBest(int num){
 
-        ArrayList<Chromosome> ret = population;
+        ArrayList<Chromosome> ret = new ArrayList<>(population);
         Collections.sort(ret);
         while(ret.size() > num) ret.remove(ret.size()-1);
 
@@ -81,7 +81,8 @@ public class GenAlgorithm{
 
     public GenAlgorithm(ArrayList<Chromosome> population, int ps, int mio, int mao, double mc, int sn){
 
-        this.population = population;
+        this.population = new ArrayList<>(population);
+        System.out.println("Population size: " + this.population.size());
         popSize = ps;
         minOffspring = mio;
         maxOffspring = mao;
@@ -89,6 +90,10 @@ public class GenAlgorithm{
         survivalNum = sn;
         generation = 0;
 
+    }
+
+    public int getPop() {
+        return this.population.size();
     }
 
 }

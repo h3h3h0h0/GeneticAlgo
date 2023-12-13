@@ -33,17 +33,20 @@ public class Main {
         }
 
         //create the algorithm instance
-        GenAlgorithm ga = new GenAlgorithm(p, 50, 5, 10, 0.66, 20);
+        GenAlgorithm ga = new GenAlgorithm(p, 100, 10, 20, 0.75, 30);
 
         System.out.println("\n---ITERATING---");
 
         //iterate 1000 generations
-        for(int i = 0; i < 1000; i++) {
+        for(int i = 0; i < 10000; i++) {
             ga.iterate();
-            System.out.println("Iteration: " + (i+1) + "/1000");
+            System.out.println("Iteration: " + (i+1) + "/10000, Best COD: "+ ga.getBest(1).get(0).fitness());
         }
 
+        //final result
+        System.out.println("\n---RESULTS---");
         ((Polynomial)(ga.getBest(1)).get(0)).print();
+        System.out.println("Coefficient of Determination: "+ ga.getBest(1).get(0).fitness());
 
     }
 }
