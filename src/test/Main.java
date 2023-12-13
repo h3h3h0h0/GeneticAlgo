@@ -12,6 +12,8 @@ public class Main {
         double[] xt = new double[50];
         double[] yt = new double[50];
 
+        System.out.println("---GENERATING POINTS---");
+
         for(int i = 0; i < 50; i++) {
             xt[i] = Math.random()*100-50;
             yt[i] = Math.random()*100-50;
@@ -32,6 +34,8 @@ public class Main {
 
         //create the algorithm instance
         GenAlgorithm ga = new GenAlgorithm(p, 50, 5, 10, 0.66, 20);
+
+        System.out.println("\n---ITERATING---");
 
         //iterate 1000 generations
         for(int i = 0; i < 1000; i++) {
