@@ -33,9 +33,12 @@ public class Main {
         GenAlgorithm ga = new GenAlgorithm(p, 50, 5, 10, 0.66, 20);
 
         //iterate 1000 generations
-        for(int i = 0; i < 1000; i++) ga.iterate();
+        for(int i = 0; i < 1000; i++) {
+            ga.iterate();
+            System.out.println("Iteration: " + (i+1) + "/1000");
+        }
 
-        ((Polynomial)(ga.getBest(1)).get(1)).print();
+        ((Polynomial)(ga.getBest(1)).get(0)).print();
 
     }
 }
