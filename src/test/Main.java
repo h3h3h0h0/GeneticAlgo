@@ -15,6 +15,7 @@ public class Main {
         for(int i = 0; i < 50; i++) {
             xt[i] = Math.random()*100-50;
             yt[i] = Math.random()*100-50;
+            System.out.println("Point " + (i+1) + ": (" + xt[i] + ", " + yt[i] + ")");
         }
 
         //create the arraylist of polynomials (we are going to make them quartic as an example)
